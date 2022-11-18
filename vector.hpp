@@ -154,7 +154,18 @@ namespace ft
         bool empty() const { return _size == 0; }
 
 //        reserve
-
+        void reserve(size_type n) {
+            if (n > capacity()) {
+                pointer new_v = _allocator.allocate(n);
+                for (size_type i = 0; i < _size; i++) {
+                    _allocator.construct(&new_v[i], _arr[i]);
+                    _allocator.destroy(&_arr[i]);
+                }
+                _allocator.deallocate(_arr, _capacity);
+                _arr = new_v;
+                _capacity = n;
+            }
+        }
 
     };
 
