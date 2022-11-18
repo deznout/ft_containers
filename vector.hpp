@@ -138,12 +138,21 @@ namespace ft
         size_type max_size() const { return _allocator.max_size(); }
 
         void resize(size_type n, value_type val = value_type()) {
-
+            if (n < _size) {
+                while (n < _size) {
+//                    pop_back();
+                }
+            } else if (n > _size) {
+                while (n > _size) {
+//                    push_back(val);
+                }
+            }
         }
 
         size_type capacity() const { return _capacity; }
 
         bool empty() const { return _size == 0; }
+
 //        reserve
 
 
