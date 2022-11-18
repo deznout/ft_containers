@@ -133,6 +133,18 @@ namespace ft
 
         const_reverse_iterator rend() const { return reverse_iterator(begin()); }
 
+        size_type size() const { return _size; }
+
+        size_type max_size() const { return _allocator.max_size(); }
+
+        void resize(size_type n, value_type val = value_type()) {
+
+        }
+
+        size_type capacity() const { return _capacity; }
+
+        bool empty() const { return _size == 0; }
+//        reserve
 
 
     };
