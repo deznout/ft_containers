@@ -27,7 +27,7 @@ namespace ft
         explicit reverse_iterator(iterator_type iter) : current(iter) {}
 
         template <class U>
-        explicit reverse_iterator(const reverse_iterator<U>& other) : current(other.base()) {}
+        reverse_iterator(const reverse_iterator<U>& other) : current(other.base()) {}
         virtual ~reverse_iterator() {}
 
         iterator_type base() const { return current; }

@@ -38,8 +38,8 @@ namespace ft
         pointer _arr;
 
     public:
-        explicit vector(const allocator_type &alloc = allocator_type()) : _size(0), _capacity(0), _allocator(alloc),
-                                                                          _arr(0) {}
+        explicit vector(const allocator_type &alloc = allocator_type())
+        : _size(0), _capacity(0), _allocator(alloc), _arr(0) {}
 
         explicit vector(size_type n, const value_type &val = value_type(),
                         const allocator_type &alloc = allocator_type()) : _size(n), _capacity(n), _allocator(alloc),
@@ -188,6 +188,10 @@ namespace ft
         reference back() { return _arr[_size - 1]; }
 
         const_reference back() const { return _arr[_size - 1]; }
+
+        pointer data() { return _arr; }
+
+        const pointer data() const { return _arr; }
 
         template <class InputIterator>
         void assign(InputIterator first, InputIterator last,
