@@ -153,11 +153,11 @@ namespace ft
         return rev_it + n;
     }
 
-    template <class Iterator>
-    random_iterator<Iterator> operator-(typename random_iterator<Iterator>::difference_type n,
-                                         const random_iterator<Iterator>& rev_it) {
-        return rev_it - n;
-    }
+//    template <class Iterator>
+//    random_iterator<Iterator> operator-(typename random_iterator<Iterator>::difference_type n,
+//                                         const random_iterator<Iterator>& rev_it) {
+//        return rev_it - n;
+//    }
 
 }
 

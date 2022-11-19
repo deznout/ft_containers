@@ -44,7 +44,7 @@ namespace ft
         explicit vector(size_type n, const value_type &val = value_type(),
                         const allocator_type &alloc = allocator_type()) : _size(n), _capacity(n), _allocator(alloc),
                                                                           _arr(0) {
-            try { this->arr_ = _allocator.allocate(this->_capacity); }
+            try { _arr = _allocator.allocate(_capacity); }
             catch (std::bad_alloc &ex) {
                 std::cerr << "bad_alloc caught: " << ex.what() << std::endl;
                 _capacity = 0;
