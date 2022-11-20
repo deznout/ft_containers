@@ -1,8 +1,8 @@
 #ifndef ITERATOR_TRAITS_HPP
 #define ITERATOR_TRAITS_HPP
 
-#include <iterator>
 #include <cstddef>
+#include <iterator>
 
 namespace ft
 {
@@ -32,7 +32,7 @@ namespace ft
     {
         typedef T value_type;
         typedef std::ptrdiff_t difference_type;
-        typedef const value_type& pointer;
+        typedef const value_type* pointer;
         typedef const value_type& reference;
         typedef std::random_access_iterator_tag iterator_category;
     };
