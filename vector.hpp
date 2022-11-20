@@ -28,8 +28,8 @@ namespace ft
         typedef ft::reverse_iterator<iterator> reverse_iterator;
         typedef ft::reverse_iterator<const_iterator> const_reverse_iterator;
 
-        typedef long int difference_type;
-        typedef size_t size_type;
+        typedef typename allocator_type::difference_type difference_type;
+        typedef typename allocator_type::size_type size_type;
 
     private:
         size_type _size;
@@ -76,8 +76,14 @@ namespace ft
                 _allocator.construct(&_arr[i], *first);
         }
 
-        vector(const vector &x) : _size(), _capacity() {
-            *this = x;
+        vector(const vector &x) : _size(0), _capacity(0), _arr(0), _allocator(x._allocator) {
+            clear();
+            reserve(x._capacity);
+            for (size_t i = 0; i < x._size; ++i) {
+                _allocator.construct(_arr + i, x._arr[i]);
+            }
+            _size = x._size;
+//            *this = x;
         }
 
         ~vector() {
@@ -100,7 +106,8 @@ namespace ft
                 _capacity = other._capacity;
                 _size = other._size;
                 try {_arr = _allocator.allocate(_capacity);}
-                catch(std::bad_alloc &ex) {std::cerr << "bad_alloc caught: " << ex.what() << std::endl;
+                catch(std::bad_alloc &ex) {
+                    std::cerr << "bad_alloc caught: " << ex.what() << std::endl;
                     _size = 0 ; _capacity = 0; throw; }
                 try {
                     for (size_t i = 0; i < _size; ++i)

@@ -191,6 +191,7 @@ void test_constructors(void) {
 	std::cout << CLEAR;
 }
 
+
 void test_assigns(void) {
 	std::cout << std::endl << "*** " << CYAN "TEST FT_VECTOR" REST << " ***" << std::endl << std::endl;
 	std::cout << "=== " << MAG "TEST №2 Assigns" REST << " ===" << std::endl;
@@ -1269,6 +1270,8 @@ void speed_test() {
 		std::cout << CLEAR;
 	}
 }
+
+
 
 int main(void) {
 	test_constructors();
