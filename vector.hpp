@@ -76,14 +76,9 @@ namespace ft
                 _allocator.construct(&_arr[i], *first);
         }
 
-        vector(const vector &x) : _size(0), _capacity(0), _arr(0), _allocator(x._allocator) {
-            clear();
-            reserve(x._capacity);
-            for (size_t i = 0; i < x._size; ++i) {
-                _allocator.construct(_arr + i, x._arr[i]);
-            }
-            _size = x._size;
-//            *this = x;
+        vector(const vector &x)
+        : _size(0), _capacity(0), _arr(0), _allocator(x._allocator) {
+            *this = x;
         }
 
         ~vector() {
