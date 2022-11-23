@@ -18,8 +18,19 @@ namespace ft
         typedef ft::pair<const key_type , mapped_type> value_type;
         typedef Compare key_compare;
 
-        //typedef value_compare //Nested function class to compare elements	see value_comp
-        //value_compare value_comp() const;
+        class value_compare : public std::binary_function<value_type, value_type, bool> {
+            friend class map;
+
+        protected:
+            Compare _comp;
+
+            value_compare(Compare c) : _comp(c) {}
+
+        public:
+            bool operator()(const value_type &x, const value_type &y) const {
+                return _comp(x.first, y.first);
+            }
+        };
 
         typedef Alloc allocator_type;
         typedef value_type& reference;
@@ -35,6 +46,15 @@ namespace ft
         typedef std::ptrdiff_t difference_type;
         typedef std::size_t size_type;
 
+
+
+    public:
+        explicit map(const key_compare& comp = key_compare(), const allocator_type& alloc = allocator_type());
+
+        template<class InputIterator>
+        map(InputIterator first, InputIterator last, const key_compare& comp = key_compare(), const allocator_type& alloc = allocator_type());
+
+        map(const map& x);
 
 
     };
