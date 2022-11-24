@@ -35,7 +35,6 @@ namespace ft
         typedef	tree_node<value_type>   type_node;
 
         typedef	type_node*  pointer;
-        typedef	const type_node*    const_pointer;
         typedef	type_node&	reference;
         typedef	const type_node&    const_reference;
         typedef typename Alloc::template rebind<type_node>::other   allocator_type;
@@ -43,9 +42,7 @@ namespace ft
         typedef std::ptrdiff_t  difference_type;
 
         typedef ft::bidirect_iterator<type_node>   iterator;
-        typedef ft::bidirect_iterator<const type_node> const_iterator;
         typedef ft::reverse_iterator<iterator>  reverse_iterator;
-        typedef ft::reverse_iterator<const_iterator>    const_reverse_iterator;
 
     private:
         pointer _root;
