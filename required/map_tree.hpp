@@ -4,7 +4,6 @@
 # include <functional>
 # include "reverse_iterator.hpp"
 # include "bidirect_iterator.hpp"
-# include "pair.hpp"
 # include "enable_and_integral.hpp"
 
 namespace ft
@@ -432,8 +431,8 @@ namespace ft
         }
 
         void _erase_helper(pointer node) {
-            pointer x = 0;
-            pointer y = 0;
+            pointer x;
+            pointer y;
             if (!node or node == _nil)
                 return;
             if (node->left == _nil or node->right == _nil) {
