@@ -72,7 +72,7 @@ namespace ft
         }
 
         red_black_tree(const red_black_tree& other)
-                : _nil(0), _alloc(other._alloc), _root(0), _comp(other._comp), _size(0) {
+                : _root(0), _nil(0), _comp(other._comp), _size(0), _alloc(other._alloc) {
             _nil = _alloc.allocate(1);
             _alloc.construct(_nil, type_node(value_type()));
             _nil->color = BLACK;

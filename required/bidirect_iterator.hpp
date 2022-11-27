@@ -26,13 +26,13 @@ namespace ft
         node_ptr    _nil;
 
     public:
-        bidirect_iterator() : _nil(0), _ptr(0), _root(0) {}
+        bidirect_iterator() : _ptr(0), _root(0), _nil(0) {}
 
         bidirect_iterator(node_ptr ptr, node_ptr root, node_ptr nil)
         : _ptr(ptr), _root(root), _nil(nil) {}
 
         bidirect_iterator(const bidirect_iterator &other)
-        : _nil(other._nil), _root(other._root), _ptr(other._ptr) {}
+        : _ptr(other._ptr), _root(other._root), _nil(other._nil) {}
 
         virtual ~bidirect_iterator() {}
 
