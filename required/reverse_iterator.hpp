@@ -21,7 +21,8 @@ namespace ft
         typedef typename iterator_traits<Iterator>::reference reference;
 
 
-        reverse_iterator() : current(0) {}
+        reverse_iterator() : current() {}
+
         explicit reverse_iterator(iterator_type iter) : current(iter) {}
 
         template <class U>

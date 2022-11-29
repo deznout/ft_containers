@@ -1,23 +1,49 @@
-FT= ft_containers
+CXX			= c++
 
-STD = std_containers
+CXXFLAGS 	= -g -Wall -Wextra -Werror -std=c++98
 
-CC = clang++
+all: start_vector start_stack start_set start_map
 
-CLFAGS = -Wall -Wextra -Werror -std=c++98
+VECTOR		= vector_test
 
-SRC = .cpp
+$(VECTOR):
+	@($(CXX) $(CXXFLAGS) ./tests/test_vector.cpp -o $(VECTOR))
 
-all: $(STD) $(FT)
-$(STD):
-	$(CC) $(CLFAGS) -o $(STD)  main.cpp
+start_vector: $(VECTOR)
+			@./$(VECTOR)
+			@rm $(VECTOR)
+			@rm -rf ./vector_test.dSYM
 
-$(FT):
-	$(CC) -DFT $(CLFAGS) -o $(FT)  main.cpp
+STACK		= stack_test
 
-clean:
-	rm -rf $(FT) $(STD) diff
+$(STACK):
+	@($(CXX) $(CXXFLAGS) ./tests/test_stack.cpp -o $(STACK))
 
-fclean: clean
+start_stack: $(STACK)
+			@./$(STACK)
+			@rm $(STACK)
+			@rm -rf ./stack_test.dSYM
 
-re: fclean all
+SET		= set_test
+
+CPP_SET = ./tests/test_set.cpp
+
+$(SET):
+	@($(CXX) $(CXXFLAGS) $(CPP_SET) -o $(SET))
+
+start_set: $(SET)
+			@./$(SET)
+			@rm $(SET)
+			@rm -rf ./set_test.dSYM
+
+MAP		= map_test
+
+CPP_MAP = ./tests/test_map.cpp
+
+$(MAP):
+	@($(CXX) $(CXXFLAGS) $(CPP_MAP) -o $(MAP))
+
+start_map: $(MAP)
+			@./$(MAP)
+			@rm $(MAP)
+			@rm -rf ./map_test.dSYM

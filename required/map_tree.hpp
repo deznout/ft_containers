@@ -398,17 +398,19 @@ namespace ft
                 if (node == node->parent->left) {
                     pointer tmp = node->parent->right;
                     color_node(tmp, node, 1);
-                    if (tmp->left->color == BLACK and tmp->right->color == BLACK) {
-                        tmp->color = RED;
-                        node = node->parent;
-                    } else {
-                        if (tmp->right->color == BLACK) {
-                            tmp->left->color = BLACK;
+                    if (tmp->left and tmp->right) {
+                        if (tmp->left->color == BLACK and tmp->right->color == BLACK) {
                             tmp->color = RED;
-                            _rotate_right(tmp);
-                            tmp = node->parent->right;
+                            node = node->parent;
+                        } else {
+                            if (tmp->right and tmp->right->color == BLACK) {
+                                tmp->left->color = BLACK;
+                                tmp->color = RED;
+                                _rotate_right(tmp);
+                                tmp = node->parent->right;
+                            }
+                            rotate_color(tmp, node, 1);
                         }
-                        rotate_color(tmp, node, 1);
                     }
                 } else {
                     pointer tmp = node->parent->left;

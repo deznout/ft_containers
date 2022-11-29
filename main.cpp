@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 #include <deque>
-#if 1 //CREATE A REAL STL EXAMPLE
-    #include <map>
-    #include <stack>
-    #include <vector>
-    namespace ft = std;
-#else
-    #include <map.hpp>
-	#include <stack.hpp>
-	#include <vector.hpp>
-#endif
+//#if 1 //CREATE A REAL STL EXAMPLE
+//    #include <map>
+//    #include <stack>
+//    #include <vector>
+//    namespace ft = std;
+//#else
+    #include "map.hpp"
+	#include "stack.hpp"
+	#include "vector.hpp"
+//#endif
 
 #include <stdlib.h>
 
@@ -40,8 +40,8 @@ public:
 
     typedef typename ft::stack<T>::container_type::iterator iterator;
 
-    iterator begin() { return this->c.begin(); }
-    iterator end() { return this->c.end(); }
+    iterator begin() { return this->_ctnr.begin(); }
+    iterator end() { return this->_ctnr.end(); }
 };
 
 int main(int argc, char** argv) {
